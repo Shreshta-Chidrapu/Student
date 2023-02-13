@@ -45,5 +45,10 @@ public class StudentController {
         studentService.deleteStudents();
         return "deleted all rows successfully";
     }
+    @GetMapping("/deptId/{id}")
+    @ResponseBody
+    public List<Student> getStudentsByDeptId(@PathVariable("id") Long departmentId){
+        return   studentService.getStudentsByDeptId(departmentId);
+    }
 
 }

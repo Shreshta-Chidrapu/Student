@@ -5,10 +5,7 @@ import com.example.example.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class StudentService {
@@ -26,6 +23,14 @@ public class StudentService {
     }
     public void deleteStudents(){
         studentRepository.deleteAll();
+    }
+    public List<Student> getStudentsByDeptId(Long departmentId){
+        List<Student> list=studentRepository.findAll();
+        List<Student> ans=new ArrayList<>();
+        for(Student s:list){
+            if(s.getDepartmentId()==departmentId) ans.add(s);
+        }
+        return ans;
     }
     public Student updateStudent(Student student, long id) {
 
