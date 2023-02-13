@@ -11,7 +11,7 @@ import java.util.List;
 public class StudentController {
   @Autowired
     private StudentService studentService;
-
+//create a record
     @PostMapping("/save")
     @ResponseBody
     public  Student saveStudent(@RequestBody Student student){
