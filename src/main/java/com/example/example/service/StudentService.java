@@ -24,7 +24,9 @@ public class StudentService {
     {
         studentRepository.deleteById(id);
     }
-
+    public void deleteStudents(){
+        studentRepository.deleteAll();
+    }
     public Student updateStudent(Student student, long id) {
 
         Student depDB = studentRepository.findById(id).get();

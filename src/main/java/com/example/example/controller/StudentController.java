@@ -39,7 +39,11 @@ public class StudentController {
         return "Deleted Successfully";
     }
 
-
-
+    @DeleteMapping("/all")
+    @ResponseBody
+    public String deleteStudents(){
+        studentService.deleteStudents();
+        return "deleted all rows successfully";
+    }
 
 }
