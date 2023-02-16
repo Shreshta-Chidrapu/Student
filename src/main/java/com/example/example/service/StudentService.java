@@ -27,20 +27,16 @@ public class StudentService {
     public void deleteStudents(){
         studentRepository.deleteAll();
     }
-    public List<Student> getStudentsByDeptId(Long departmentId){
-        List<Student> list=studentRepository.findAll();
-        List<Student> ans=new ArrayList<>();
-        for(Student s:list){
-            if(s.getDepartmentId()==departmentId) ans.add(s);
-        }
-        return ans;
-    }
+
     public List<Student> getStudentsByFirstName(String first_name) {
 
 
 
         return  studentRepository.findByTitleLikeCaseInsensitive(first_name);
 
+    }
+    public List<Student> getStudentsByDept(Long departmentId){
+        return studentRepository.findByDeptId(departmentId);
     }
     public Student updateStudent(Student student, long id) {
 

@@ -45,15 +45,15 @@ public class StudentController {
         studentService.deleteStudents();
         return "deleted all rows successfully";
     }
-    @GetMapping("/deptId/{id}")
-    @ResponseBody
-    public List<Student> getStudentsByDeptId(@PathVariable("id") Long departmentId){
-        return   studentService.getStudentsByDeptId(departmentId);
-    }
+
     @GetMapping("/get/{firstName}")
     @ResponseBody
     public List<Student> getStudentsByName(@PathVariable String firstName){
         return studentService.getStudentsByFirstName(firstName);
     }
-
+   @GetMapping("/get/dept/{id}")
+    @ResponseBody
+    public List<Student> getStudentByDept(@PathVariable("id") Long id){
+        return studentService.getStudentsByDept(id);
+   }
 }
