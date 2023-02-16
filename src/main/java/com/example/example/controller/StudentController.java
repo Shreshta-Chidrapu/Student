@@ -50,5 +50,10 @@ public class StudentController {
     public List<Student> getStudentsByDeptId(@PathVariable("id") Long departmentId){
         return   studentService.getStudentsByDeptId(departmentId);
     }
+    @GetMapping("/get/{firstName}")
+    @ResponseBody
+    public List<Student> getStudentsByName(@PathVariable String firstName){
+        return studentService.getStudentsByFirstName(firstName);
+    }
 
 }

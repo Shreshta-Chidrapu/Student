@@ -5,11 +5,14 @@ import com.example.example.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Service
 public class StudentService {
     @Autowired
+
     private StudentRepository studentRepository;
     public Student saveStudent(Student student){
         return studentRepository.save(student);
@@ -31,6 +34,13 @@ public class StudentService {
             if(s.getDepartmentId()==departmentId) ans.add(s);
         }
         return ans;
+    }
+    public List<Student> getStudentsByFirstName(String first_name) {
+
+
+
+        return  studentRepository.findByTitleLikeCaseInsensitive(first_name);
+
     }
     public Student updateStudent(Student student, long id) {
 
